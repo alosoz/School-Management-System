@@ -8,7 +8,7 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
-create_script = '''CREATE TABLE IF NOT EXISTS "public.Students" (
+create_script = '''CREATE TABLE IF NOT EXISTS Students (
 	"student_id" serial,
 	"first_name" varchar(255),
 	"last_name" varchar(255),
@@ -18,7 +18,7 @@ create_script = '''CREATE TABLE IF NOT EXISTS "public.Students" (
 ) WITH (
   OIDS=FALSE
 );
-CREATE TABLE IF NOT EXISTS "public.Teachers" (
+CREATE TABLE IF NOT EXISTS Teachers (
 	"teacher_id" serial,
 	"student_id" integer,
 	"user_name" VARCHAR(255),
@@ -30,14 +30,14 @@ CREATE TABLE IF NOT EXISTS "public.Teachers" (
 ) WITH (
   OIDS=FALSE
 );
-CREATE TABLE IF NOT EXISTS "public.Lessons" (
+CREATE TABLE IF NOT EXISTS Lessons (
 	"lesson_id" serial,
 	"name" VARCHAR(255),
 	CONSTRAINT "Lessons_pk" PRIMARY KEY ("lesson_id")
 ) WITH (
   OIDS=FALSE
 );
-CREATE TABLE IF NOT EXISTS  "public.StudentLessons" (
+CREATE TABLE IF NOT EXISTS  StudentLessons (
 	"studentlessons_id" serial NOT NULL,
 	"student_id" integer NOT NULL,
 	"lesson_id" integer NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS  "public.StudentLessons" (
 ) WITH (
   OIDS=FALSE
 );
-CREATE TABLE IF NOT EXISTS "public.Marks" (
+CREATE TABLE IF NOT EXISTS Marks (
 	"mark_id" integer NOT NULL,
 	"student_id" integer NOT NULL,
 	"lesson_id" integer NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS "public.Marks" (
 ) WITH (
   OIDS=FALSE
 );
-CREATE TABLE IF NOT EXISTS "public.Grades" (
+CREATE TABLE IF NOT EXISTS Grades (
 	"grade_id" serial NOT NULL,
 	"grade_name" VARCHAR(255),
 	"student_id" integer NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS "public.Grades" (
 ) WITH (
   OIDS=FALSE
 );
-CREATE TABLE IF NOT EXISTS "public.Teachers_students" (
+CREATE TABLE IF NOT EXISTS Teachers_students (
 	"teacher_student_id" serial NOT NULL,
 	"teacher_id" serial NOT NULL,
 	"student_id" serial NOT NULL,
@@ -75,13 +75,27 @@ CREATE TABLE IF NOT EXISTS "public.Teachers_students" (
 
 
 
+ALTER TABLE StudentLessons ADD CONSTRAINT "StudentLessons_fk0" FOREIGN KEY ("student_id") REFERENCES Students("student_id");
+ALTER TABLE StudentLessons ADD CONSTRAINT "StudentLessons_fk1" FOREIGN KEY ("lesson_id") REFERENCES Lessons("lesson_id");
+
+ALTER TABLE Marks ADD CONSTRAINT "Marks_fk0" FOREIGN KEY ("student_id") REFERENCES Students("student_id");
+ALTER TABLE Marks ADD CONSTRAINT "Marks_fk1" FOREIGN KEY ("lesson_id") REFERENCES Lessons("lesson_id");
+
+ALTER TABLE Grades ADD CONSTRAINT "Grades_fk0" FOREIGN KEY ("student_id") REFERENCES Students("student_id");
+
+ALTER TABLE Teachers_students ADD CONSTRAINT "Teachers_students_fk0" FOREIGN KEY ("teacher_id") REFERENCES Teachers("teacher_id");
+ALTER TABLE Teachers_students ADD CONSTRAINT "Teachers_students_fk1" FOREIGN KEY ("student_id") REFERENCES Students("student_id");
+
+
+
+
 
 '''
 
 cur.execute(create_script)
 
 insert_script = 'INSERT INTO Lessons ("lesson_id","name") VALUES (%s,%s)'
-insert_Value = (1,"math")
+insert_Value = (2,"english")
 cur.execute(insert_script,insert_Value)
 
 conn.commit()
