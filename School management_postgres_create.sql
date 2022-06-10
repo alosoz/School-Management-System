@@ -13,7 +13,6 @@ CREATE TABLE "public.Students" (
 
 CREATE TABLE "public.Teachers" (
 	"teacher_id" serial,
-	"student_id" integer,
 	"user_name" VARCHAR(255),
 	"password" varchar(255) NOT NULL,
 	"first_name" varchar(255) NOT NULL,
@@ -47,23 +46,11 @@ CREATE TABLE "public.StudentLessons" (
 
 
 
-CREATE TABLE "public.Marks" (
-	"mark_id" integer NOT NULL,
+CREATE TABLE "public.Grades" (
+	"grade_id" integer NOT NULL,
 	"student_id" integer NOT NULL,
 	"lesson_id" integer NOT NULL,
-	"date" TIMESTAMP NOT NULL,
-	"marks" FLOAT NOT NULL,
-	CONSTRAINT "Marks_pk" PRIMARY KEY ("mark_id")
-) WITH (
-  OIDS=FALSE
-);
-
-
-
-CREATE TABLE "public.Grades" (
-	"grade_id" serial NOT NULL,
-	"grade_name" serial(255) NOT NULL,
-	"student_id" integer NOT NULL,
+	"grade" FLOAT NOT NULL,
 	CONSTRAINT "Grades_pk" PRIMARY KEY ("grade_id")
 ) WITH (
   OIDS=FALSE
@@ -71,11 +58,11 @@ CREATE TABLE "public.Grades" (
 
 
 
-CREATE TABLE "public.Teachers_students" (
-	"teacher_student_id" serial NOT NULL,
+CREATE TABLE "public.Teachers_lessons" (
+	"teacher_lesson_id" serial NOT NULL,
 	"teacher_id" serial NOT NULL,
-	"student_id" serial NOT NULL,
-	CONSTRAINT "Teachers_students_pk" PRIMARY KEY ("teacher_student_id")
+	"lesson_id" serial NOT NULL,
+	CONSTRAINT "Teachers_lessons_pk" PRIMARY KEY ("teacher_lesson_id")
 ) WITH (
   OIDS=FALSE
 );
@@ -88,14 +75,11 @@ CREATE TABLE "public.Teachers_students" (
 ALTER TABLE "StudentLessons" ADD CONSTRAINT "StudentLessons_fk0" FOREIGN KEY ("student_id") REFERENCES "Students"("student_id");
 ALTER TABLE "StudentLessons" ADD CONSTRAINT "StudentLessons_fk1" FOREIGN KEY ("lesson_id") REFERENCES "Lessons"("lesson_id");
 
-ALTER TABLE "Marks" ADD CONSTRAINT "Marks_fk0" FOREIGN KEY ("student_id") REFERENCES "Students"("student_id");
-ALTER TABLE "Marks" ADD CONSTRAINT "Marks_fk1" FOREIGN KEY ("lesson_id") REFERENCES "Lessons"("lesson_id");
-
 ALTER TABLE "Grades" ADD CONSTRAINT "Grades_fk0" FOREIGN KEY ("student_id") REFERENCES "Students"("student_id");
+ALTER TABLE "Grades" ADD CONSTRAINT "Grades_fk1" FOREIGN KEY ("lesson_id") REFERENCES "Lessons"("lesson_id");
 
-ALTER TABLE "Teachers_students" ADD CONSTRAINT "Teachers_students_fk0" FOREIGN KEY ("teacher_id") REFERENCES "Teachers"("teacher_id");
-ALTER TABLE "Teachers_students" ADD CONSTRAINT "Teachers_students_fk1" FOREIGN KEY ("student_id") REFERENCES "Students"("student_id");
-
+ALTER TABLE "Teachers_lessons" ADD CONSTRAINT "Teachers_lessons_fk0" FOREIGN KEY ("teacher_id") REFERENCES "Teachers"("teacher_id");
+ALTER TABLE "Teachers_lessons" ADD CONSTRAINT "Teachers_lessons_fk1" FOREIGN KEY ("lesson_id") REFERENCES "Lessons"("lesson_id");
 
 
 
