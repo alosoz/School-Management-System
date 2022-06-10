@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget_teacher">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>780</width>
+      <height>780</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>780</width>
+      <height>780</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>780</width>
+      <height>780</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #808080</string>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Personal Information</string>
+     </attribute>
+     <widget class="QLabel" name="label_password_teacher">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>140</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string>Password:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_username_teacher">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>180</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string>Username:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_email_teacher">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>220</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string>Email:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_first_name_teacher">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>60</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string>First Name:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_first_name_teacher">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>60</y>
+        <width>551</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ffffff
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_last_name_teacher">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>100</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string>Last Name:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_lastname_teacher">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>100</y>
+        <width>551</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ffffff</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_emai_teacher">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>220</y>
+        <width>551</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_username_teacher">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>180</y>
+        <width>551</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_password_teacher">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>140</y>
+        <width>551</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Lessons</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_lessons_func">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>760</width>
+        <height>760</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>Add</string>
+       </attribute>
+       <widget class="QTabWidget" name="tabWidget_lesson_add_func">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>740</width>
+          <height>740</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tab_20">
+         <attribute name="title">
+          <string>New Lesson</string>
+         </attribute>
+         <widget class="QLabel" name="label_lesson_add_newlesson">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>110</y>
+            <width>100</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>2</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Lesson:</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_lesson_add_newlesson_add">
+          <property name="geometry">
+           <rect>
+            <x>320</x>
+            <y>210</y>
+            <width>181</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_lesson_add_newlesson">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>110</y>
+            <width>481</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_21">
+         <attribute name="title">
+          <string>StudentToLesson</string>
+         </attribute>
+         <widget class="QLabel" name="label_lesson_add_stuTolesson_stu_num">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>90</y>
+            <width>131</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>2</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Student Number:</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_Lesson_add_StuToLesson_add">
+          <property name="geometry">
+           <rect>
+            <x>340</x>
+            <y>190</y>
+            <width>181</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_lesson_add_StuTolesson_1">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>90</y>
+            <width>481</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_lesson_add_stuToLes_lesson">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>140</y>
+            <width>131</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>2</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Lesson</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_Lesson_Add_StuTolesson_2">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>140</y>
+            <width>481</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>Edit</string>
+       </attribute>
+       <widget class="QPushButton" name="pushButton_Lesson_Edit_edit">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>210</y>
+          <width>181</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_lesson_edit_curLesName">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>90</y>
+          <width>171</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Current Lesson Name:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_Lesson_Edit_1">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>90</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_Lesson_Edit_NewLesName">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>150</y>
+          <width>141</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>New Lesson Name:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_Lesson_Edit_2">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>150</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_7">
+       <attribute name="title">
+        <string>Remove</string>
+       </attribute>
+       <widget class="QTabWidget" name="tabWidget_lesson_remove_func">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>740</width>
+          <height>740</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tab_22">
+         <attribute name="title">
+          <string>Lesson</string>
+         </attribute>
+         <widget class="QLabel" name="label_lesson_remove_lesson">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>110</y>
+            <width>100</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>2</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Lesson:</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_lesson_remove_lesson_rem">
+          <property name="geometry">
+           <rect>
+            <x>320</x>
+            <y>210</y>
+            <width>181</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_lesson_remove_lesson">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>110</y>
+            <width>481</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_23">
+         <attribute name="title">
+          <string>RemoveStudent</string>
+         </attribute>
+         <widget class="QLabel" name="label_lesson_remove_restu_stunum">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>90</y>
+            <width>131</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>2</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Student Number:</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_Lesson_remove_remstu_remove">
+          <property name="geometry">
+           <rect>
+            <x>340</x>
+            <y>190</y>
+            <width>181</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_lesson_remove_remstu_1">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>90</y>
+            <width>481</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_lesson_remove_remstu_lesson">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>140</y>
+            <width>131</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>2</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+          <property name="text">
+           <string>Lesson</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_Lesson_remove_remstu_2">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>140</y>
+            <width>481</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #ffffff</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Grades</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>310</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Remove</string>
+      </property>
+     </widget>
+     <widget class="QTabWidget" name="tabWidget_grade_func">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>760</width>
+        <height>760</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="tab_14">
+       <attribute name="title">
+        <string>Add</string>
+       </attribute>
+       <widget class="QLineEdit" name="lineEdit_grades_add_1">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>80</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_add_stunum">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>80</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Student Number</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_grades_add_add">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>230</y>
+          <width>181</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_add_lesson">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>130</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Lesson:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_add_2">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>130</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_add_grade">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>180</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Grade</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_add_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>180</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_15">
+       <attribute name="title">
+        <string>Edit</string>
+       </attribute>
+       <widget class="QPushButton" name="pushButton_grades_edit_search">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>210</y>
+          <width>181</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Search</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_edit_stunum">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>90</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Student Number:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_edit_1">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>90</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_edit_lesson">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>140</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Lesson:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_edit_2">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>140</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_edit_4">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>370</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_edit_new_grade">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>370</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>New Grade</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_edit_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>320</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_edit_current_grade">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>320</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Current Grade</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_grades_edit_edit">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>440</y>
+          <width>181</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_16">
+       <attribute name="title">
+        <string>Remove</string>
+       </attribute>
+       <widget class="QPushButton" name="pushButton_grades_remove_remove">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>260</y>
+          <width>181</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Remove</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_21">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>90</y>
+          <width>100</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_remove_1">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>90</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_remove_stunum">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>90</y>
+          <width>131</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Student Number:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_remove_lesson">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>140</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Lesson:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_remove_2">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>140</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_grades_remove_grade">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>200</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>2</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+        <property name="text">
+         <string>Grade</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_grades_remove_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>200</y>
+          <width>481</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ffffff</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
