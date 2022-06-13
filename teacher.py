@@ -3,8 +3,6 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 import sys
 import psycopg2
 
-
-
 class Teacher(QMainWindow):
 
     def __init__(self):
@@ -47,7 +45,21 @@ class Teacher(QMainWindow):
 
 
     def add_student(self):
-        pass
+        conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '123')
+        cur = conn.cursor()
+        student_number = self.lineEdit_lesson_add_StuTolesson_1.text()
+        qry = "select student_id from students where student_number=({})".format(student_number)
+        cur.execute(qry)
+        student_id = cur.fetchall()[0][0]
+        # fetchone()
+        lesson_name = self.lineEdit_Lesson_Add_StuTolesson_2.text()
+        qry = "select lesson_id from lessons where name=(%s)"
+        cur.execute(qry, (lesson_name,))
+        lesson_id = cur.fetchall()[0][0]
+        qry = "insert into StudentLessons(student_id,lesson_id) values ({},{})".format(student_id,lesson_id)
+        cur.execute(qry)
+        conn.commit()
+        conn.close()
 
     def edit(self):
         conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '123')
@@ -55,7 +67,7 @@ class Teacher(QMainWindow):
         current_name = self.lineEdit_Lesson_Edit_1.text()
         new_name = self.lineEdit_Lesson_Edit_2.text()
   
-        cur.execute("update lessons set name = %s where name = %s",(new_name,current_name))
+        cur.execute("update lessons set name = %s  where name = %s",(new_name,current_name))
         conn.commit()
 
 
@@ -68,19 +80,67 @@ class Teacher(QMainWindow):
         conn.commit()
 
     def remove_student(self):
-        pass
+        conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '12345')
+        cur = conn.cursor()
+        student_number = self.lineEdit_lesson_remove_remstu_1.text()
+        qry = "select student_id from students where student_number=({})".format(student_number)
+        cur.execute(qry)
+        student_id = cur.fetchall()[0][0]
+        lesson_name = self.lineEdit_Lesson_remove_remstu_2.text()
+        qry = "select lesson_id from lessons where name=(%s)"
+        cur.execute(qry, (lesson_name,))
+        lesson_id = cur.fetchall()[0][0]
+        # qry = "delete from StudentLessons where student_id={} and lesson_id={}".format(student_id,lesson_id)
+        qry = "delete from StudentLessons where student_id=(%s) and lesson_id=(%s)"
+        cur.execute(qry,(student_id,lesson_id))
+        # cur.execute(qry)
+        conn.commit()
+        conn.close()
 
     def add_grade(self):
-        pass
+        conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '123')
+        cur = conn.cursor()
+        student_num = self.lineEdit_grades_add_1.text()
+        lesson = self.lineEdit_grades_add_2.text()
+        grade = float(self.lineEdit_grades_add_3.text())
+
+
+        cur.execute("select student_id from students where student_number = %s", (student_num,))
+        student_id = cur.fetchone()[0]              
+        cur.execute("select lesson_id from lessons where name = %s", (lesson,))
+        lesson_id = cur.fetchone()[0]
+        cur.execute("insert into grades (grade) values (%s, %s, %s)", (student_id,lesson_id,grade))
+        conn.commit()
 
     def search_grade(self):
+        # conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '123')
+        # cur = conn.cursor()
+        # student_number = self.lineEdit_grades_edit_1.text()
+        # lesson = self.lineEdit_grades_edit_2.text()
+        # cur.execute("select students.student_id, lessons.lesson_id from  ")
         pass
 
     def edit_grade(self):
+        # conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '123')
+        # cur = conn.cursor()
+        # current_grade = self.lineEdit_grades_edit_3.text()
+        # new_grade = self.lineEdit_grades_edit_4.text()
         pass
 
+
     def remove_grade(self):
-        pass
+        conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '123')
+        cur = conn.cursor()
+        student_num = self.lineEdit_grades_remove_1.text()
+        lesson = self.lineEdit_grades_remove_2.text()
+        grade = float(self.lineEdit_grades_remove_3.text())
+
+        cur.execute("select student_id from students where student_number = %s", (student_num,))
+        student_id = cur.fetchone()[0]
+        lesson_id = cur.execute("select lesson_id from lessons where name = %s", (lesson,))
+        lesson_id = cur.fetchone()[0]
+        cur.execute("delete from grades where student_id = %s and lesson_id = %s", (student_id, lesson_id))  
+        conn.commit()
 
 if (__name__ == '__main__'):
 # Main App
