@@ -8,7 +8,7 @@ class TeacherForgetPassword(QMainWindow):
     def __init__(self):
         super(TeacherForgetPassword, self).__init__()
         uic.loadUi('ui/teacher_forgot.ui', self)
-        self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '12345')
+        self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
         self.pushButton_Lesson_Edit_edit.clicked.connect(self.search)
         self.show()
 
