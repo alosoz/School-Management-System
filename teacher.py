@@ -40,7 +40,7 @@ class Teacher(QMainWindow):
         value = (lesson_name,) # (burai tuple olamasi gerekmis sonuna virgul ekleyince calist)
         cur.execute(qry,value)
         self.conn.commit()
-        # TypeError: not all arguments converted during string formatting
+        # TypeError: not all arguments converted during string formatting.
 
     def add_student(self):
         cur = self.conn.cursor()
