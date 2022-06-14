@@ -148,7 +148,7 @@
      <string>Back</string>
     </property>
    </widget>
-   <widget class="QLabel" name="warning_message">
+   <widget class="QLabel" name="labelResult">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -158,10 +158,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:#ffffff</string>
+     <string notr="true">background-color:#808080</string>
     </property>
     <property name="text">
-     <string>username is already existing or password is incorrect</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
