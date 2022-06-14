@@ -18,7 +18,7 @@ class Teacher(QMainWindow):
         self.pushButton_grades_edit_search.clicked.connect(self.search_grade)
         self.pushButton_grades_edit_edit.clicked.connect(self.edit_grade)
         self.pushButton_grades_remove_remove.clicked.connect(self.remove_grade)
-        self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '12345')
+        self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
         self.show()
         self.load_data()
     
