@@ -16,7 +16,7 @@ class Student(QMainWindow):
         self.tableWidget_lesson_grade.setColumnWidth(0,205)
         self.tableWidget_lesson_grade.setColumnWidth(1,250)
         self.pushButton_update_pass.clicked.connect(self.update_pass)
-        self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '123')
+        self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
         self.show()
         self.show_lesson_grades()
         self.show_lesson_teachers()
