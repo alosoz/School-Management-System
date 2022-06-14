@@ -33,7 +33,6 @@ if (__name__ == '__main__'):
     mainwindow=TeacherForgetPassword()
     widget=QtWidgets.QStackedWidget()
     widget.addWidget(mainwindow)
-    # window = Ui_teacher_functions()
     widget.setFixedWidth(800)
     widget.setFixedHeight(800)
     widget.show()
