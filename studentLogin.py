@@ -20,22 +20,24 @@ class StudentLogin(QMainWindow):
         try:
             cur = self.conn.cursor() 
             number = self.student_number.text()
-            password = self.student_password.text()                  
-            query = "SELECT student_number,password from students where student_number like '"+number + "'and password like '" +password + "'"            
-            #query = "SELECT user_name,password from teachers where user_name like '"+user_name + "'and password like '" +password + "'"
-            cur.execute(query)
-            result = cur.fetchone() 
-            print(result)
-            if result == None:
+            password = self.student_password.text()                        
+            
+            qry = "SELECT student_number,password from students where student_number = %s and password = %s ", (number, password)
+            
+            cur.execute(qry)
+            
+            result = cur.fetchone()
+            
+            if result == None :
                 self.labelResult_student.setText("Incorrect Student Number or Password") 
             else:
                 self.labelResult_student.setText("You are logged in")
-                mydialog =QDialog()
-                mydialog.setModal(True)
-                mydialog.exec_()
                 self.cams = student.Student()
         except psycopg2.Error as e:
             self.labelResult_student.setText("Error")
+
+
+
 
     def forgot_password(self):
         self.cams = student_forget_password.StudentForgetPassword()

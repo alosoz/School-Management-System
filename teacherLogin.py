@@ -3,7 +3,7 @@ from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 import sys
 import psycopg2
-import teacher_forget_password
+import teacher_forget_password, teacher
 
 class TeacherLogin(QMainWindow):
     def __init__(self):
@@ -27,9 +27,10 @@ class TeacherLogin(QMainWindow):
                 self.labelResult.setText("Incorrect UserName or Password") 
             else:
                 self.labelResult.setText("You are logged in")
-                mydialog =QDialog()
-                mydialog.setModal(True)
-                mydialog.exec_()
+                # mydialog =QDialog()
+                # mydialog.setModal(True)
+                # mydialog.exec_()
+                self.cams = teacher.Teacher()
         except psycopg2.Error as e:
             self.labelResult.setText("Error")
     def forgot_password(self):

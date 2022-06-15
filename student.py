@@ -1,8 +1,8 @@
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
-from PyQt5.uic import loadUi
 import sys
 import psycopg2
+
 
 
 
@@ -18,7 +18,8 @@ class Student(QMainWindow):
         self.pushButton_update_pass.clicked.connect(self.update_pass)
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
         self.show()
-        self.show_lesson_grades()
+        self.show_lessons()
+        self.show_grades()
         self.show_lesson_teachers()
          
 
@@ -40,7 +41,6 @@ class Student(QMainWindow):
         teacher = cur.fetchall()
         row1 = 0
 
-
         for i in teacher:
             self.tableWidget_lesson_teacher.setItem(row1, 0, QtWidgets.QTableWidgetItem(i[0]))
             
@@ -54,19 +54,39 @@ class Student(QMainWindow):
         self.conn.commit()
 
 
-    def show_lesson_grades(self):
+    def show_lessons(self):
         cur = self.conn.cursor()      
-        show_lesson_grade_sqlquery = "SELECT name FROM lessons LIMIT 10"
+        show_lesson_grade_sqlquery = """select lessons.name from lessons
+                                        inner join grades on lessons.lesson_id = grades.lesson_id"""  
         cur.execute(show_lesson_grade_sqlquery)
-        grade = cur.fetchall()
-        row = 0
+        lesson = cur.fetchall()
+ 
+        row3 = 0
 
-
-        for i in grade:
-            self.tableWidget_lesson_grade.setItem(row, 0, QtWidgets.QTableWidgetItem(i[0]))
-            row = row+1
-
+        for i in lesson:
+            self.tableWidget_lesson_grade.setItem(row3, 0, QtWidgets.QTableWidgetItem(i[0]))
+            row3 = row3+1
         self.conn.commit()
+
+    def show_grades(self):
+        # cur = self.conn.cursor()      
+        # show_lesson_grade_sqlquery = """select grades.grade from lessons
+        #                                 inner join grades on lessons.lesson_id = grades.lesson_id"""  
+        # cur.execute(show_lesson_grade_sqlquery)
+        # grade = cur.fetchall()
+        # strr = ''.join([str(x) for t in grade for x in t])
+
+
+        # row4 = 0    
+        # for i in strr:
+        #     self.tableWidget_lesson_grade.setItem(row4, 0, QtWidgets.QTableWidgetItem(i[0]))
+            
+        #     row4 = row4+1   
+        
+        # self.conn.commit()
+        pass
+        
+
 
 
     def personal_info(self):
