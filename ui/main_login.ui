@@ -29,7 +29,7 @@
    <string notr="true">background-color:#808080</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="teacher">
+   <widget class="QPushButton" name="teacher_main">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -50,7 +50,7 @@
      <string>Teacher</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="student">
+   <widget class="QPushButton" name="student_main">
     <property name="geometry">
      <rect>
       <x>350</x>

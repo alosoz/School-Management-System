@@ -44,13 +44,11 @@ class Student(QMainWindow):
             
             row = row+1
            
-
         self.conn.commit()
 
 
     def show_lesson_grades(self):
-        cur = self.conn.cursor()
-        
+        cur = self.conn.cursor()      
         show_lesson_grade_sqlquery = "SELECT name FROM lessons LIMIT 10"
         cur.execute(show_lesson_grade_sqlquery)
         grade = cur.fetchall()
@@ -61,7 +59,6 @@ class Student(QMainWindow):
             self.tableWidget_lesson_grade.setItem(row, 0, QtWidgets.QTableWidgetItem(i[0]))
             row = row+1
 
-        
         self.conn.commit()
 
 
@@ -75,7 +72,7 @@ class Student(QMainWindow):
             self.lineEdit_Password_stu.insert(r[2])
             self.lineEdit_Stu_number.insert(r[3])
 
-
+        self.conn.commit()
 
 
 if (__name__ == '__main__'):
@@ -88,5 +85,4 @@ if (__name__ == '__main__'):
     widget.setFixedHeight(800)
     widget.show()
     app.exec_()
-
 
