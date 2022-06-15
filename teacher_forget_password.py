@@ -37,4 +37,3 @@ if (__name__ == '__main__'):
     widget.setFixedHeight(800)
     widget.show()
     app.exec_()
-        
