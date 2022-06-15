@@ -33,17 +33,24 @@ class Student(QMainWindow):
 
     def show_lesson_teachers(self):
         cur = self.conn.cursor()
-        show_lesson_teacher_sqlquery = "SELECT first_name FROM teachers LIMIT 10"
+        show_lesson_teacher_sqlquery = """select lessons.name,teachers.first_name || ' ' || last_name from ((teachers_lessons
+                                          inner join teachers on teachers.teacher_id = teachers_lessons.teacher_id)
+                                          inner join lessons on teachers_lessons.lesson_id = lessons.lesson_id );"""   
         cur.execute(show_lesson_teacher_sqlquery)
         teacher = cur.fetchall()
-        row = 0
+        row1 = 0
 
 
         for i in teacher:
-            self.tableWidget_lesson_teacher.setItem(row, 0, QtWidgets.QTableWidgetItem(i[0]))
+            self.tableWidget_lesson_teacher.setItem(row1, 0, QtWidgets.QTableWidgetItem(i[0]))
             
-            row = row+1
-           
+            row1 = row1+1
+
+        row2 = 0    
+        for i in teacher:
+            self.tableWidget_lesson_teacher.setItem(row2, 1, QtWidgets.QTableWidgetItem(i[1]))
+            
+            row2 = row2+1   
         self.conn.commit()
 
 
