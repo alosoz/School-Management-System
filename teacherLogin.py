@@ -3,7 +3,7 @@ from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 import sys
 import psycopg2
-import teacher_forget_password
+import teacher_forget_password, teacher, main
 
 class TeacherLogin(QMainWindow):
     def __init__(self):
@@ -12,30 +12,38 @@ class TeacherLogin(QMainWindow):
         self.teacher_login.clicked.connect(self.login)
         self.teacher_forgot.clicked.connect(self.forgot_password)
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
-
+        self.teacher_login_back.clicked.connect(self.back)
         self.show()
 
     def login(self):
         try:
             cur = self.conn.cursor() 
-            user_name = self.username.text()
-            password = self.teacher_password.text()                  
-            query = "SELECT user_name,password from teachers where user_name like '"+user_name + "'and password like '" +password + "'"
+            user_name_1 = self.username.text()
+            password_1 = self.teacher_password.text()                  
+            query = "SELECT user_name,password from teachers where user_name like '"+user_name_1 + "'and password like '" +password_1 + "'"
             cur.execute(query)
             result = cur.fetchone() 
             if result == None:
                 self.labelResult.setText("Incorrect UserName or Password") 
             else:
                 self.labelResult.setText("You are logged in")
-                mydialog =QDialog()
-                mydialog.setModal(True)
-                mydialog.exec_()
+                print(type(result))
+                # mydialog =QDialog()
+                # mydialog.setModal(True)
+                # mydialog.exec_()
+                self.cams = teacher.Teacher()
+                self.cams.User_name(result)
+
         except psycopg2.Error as e:
             self.labelResult.setText("Error")
+
+  
+
     def forgot_password(self):
         self.cams = teacher_forget_password.TeacherForgetPassword()
 
-    
+    def back(self):
+        self.cams = main.Main()
     
 
     def hash_password(password): #Hash a password for storing

@@ -20,11 +20,16 @@ class Teacher(QMainWindow):
         self.pushButton_grades_remove_remove.clicked.connect(self.remove_grade)
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
         self.show()
+        self.User_name(self)
         self.load_data()
-    
+        
+
+
     def load_data(self):        
         cur = self.conn.cursor()
-        cur.execute("select first_name,last_name, password, user_name, teacher_email  from teachers where teacher_id = 1")
+        #x =  teacherLogin.TeacherLogin.login_conn(self)
+        
+        cur.execute("select first_name,last_name, password, user_name, teacher_email  from teachers where user_name = %s", (self.user_information,))
         teacher = cur.fetchall()
         for r in teacher:
             self.lineEdit_first_name_teacher.insert(r[0])
@@ -32,6 +37,12 @@ class Teacher(QMainWindow):
             self.lineEdit_password_teacher.insert(r[2])
             self.lineEdit_username_teacher.insert(r[3])
             self.lineEdit_emai_teacher.insert(r[4])
+
+    def User_name(self, result):
+        self.user_inf = list(result)
+        self.user_information = self.user_inf[0]
+        
+        
 
     def add_lesson(self):
         cur = self.conn.cursor()
