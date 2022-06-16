@@ -3,7 +3,7 @@ from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 import sys
 import psycopg2
-import teacher_forget_password, teacher
+import teacher_forget_password, teacher, main
 
 class TeacherLogin(QMainWindow):
     def __init__(self):
@@ -12,7 +12,7 @@ class TeacherLogin(QMainWindow):
         self.teacher_login.clicked.connect(self.login)
         self.teacher_forgot.clicked.connect(self.forgot_password)
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
-
+        self.teacher_login_back.clicked.connect(self.back)
         self.show()
 
     def login(self):
@@ -33,10 +33,17 @@ class TeacherLogin(QMainWindow):
                 self.cams = teacher.Teacher()
         except psycopg2.Error as e:
             self.labelResult.setText("Error")
+        
+    def login_conn(self):
+        x = TeacherLogin.login(self)
+        return x
+        
+
     def forgot_password(self):
         self.cams = teacher_forget_password.TeacherForgetPassword()
 
-    
+    def back(self):
+        self.cams = main.Main()
     
 
     def hash_password(password): #Hash a password for storing

@@ -22,7 +22,7 @@ class StudentLogin(QMainWindow):
             number = self.student_number.text()
             password = self.student_password.text()                        
             
-            qry = "SELECT student_number,password from students where student_number = %s and password = %s ", (number, password)
+            qry = "SELECT student_number,password from students where student_number = {}::integer and password = {}::varchar ".format(number, password)
             
             cur.execute(qry)
             
@@ -34,6 +34,7 @@ class StudentLogin(QMainWindow):
                 self.labelResult_student.setText("You are logged in")
                 self.cams = student.Student()
         except psycopg2.Error as e:
+            print(e)
             self.labelResult_student.setText("Error")
 
 

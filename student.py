@@ -69,29 +69,28 @@ class Student(QMainWindow):
         self.conn.commit()
 
     def show_grades(self):
-        # cur = self.conn.cursor()      
-        # show_lesson_grade_sqlquery = """select grades.grade from lessons
-        #                                 inner join grades on lessons.lesson_id = grades.lesson_id"""  
-        # cur.execute(show_lesson_grade_sqlquery)
-        # grade = cur.fetchall()
-        # strr = ''.join([str(x) for t in grade for x in t])
-
-
-        # row4 = 0    
-        # for i in strr:
-        #     self.tableWidget_lesson_grade.setItem(row4, 0, QtWidgets.QTableWidgetItem(i[0]))
+        cur = self.conn.cursor()      
+        show_lesson_grade_sqlquery = """select grades.grade from lessons
+                                        inner join grades on lessons.lesson_id = grades.lesson_id"""  
+        cur.execute(show_lesson_grade_sqlquery)
+        grade = cur.fetchall()
+        strr = ([str(t[0]) for t in grade])
+    
+        row4 = 0    
+        for i in strr:
+            self.tableWidget_lesson_grade.setItem(row4, 1, QtWidgets.QTableWidgetItem(i[0]))
             
-        #     row4 = row4+1   
+            row4 = row4+1   
         
-        # self.conn.commit()
-        pass
+        self.conn.commit()
+        
         
 
 
 
     def personal_info(self):
         cur = self.conn.cursor()
-        cur.execute("select first_name,last_name, password, student_number from students where student_id = 1")
+        cur.execute("select first_name,last_name, password, student_number from students where student_number ")
         Student = cur.fetchall()
         for r in Student:
             self.First_name_lineEdit.insert(r[0])

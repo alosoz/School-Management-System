@@ -1,7 +1,7 @@
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
 import sys
-import psycopg2
+import psycopg2, teacherLogin
 
 
 class Teacher(QMainWindow):
@@ -21,10 +21,15 @@ class Teacher(QMainWindow):
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
         self.show()
         self.load_data()
-    
+        self.teacherLogin.TeacherLogin.login_conn()
+
+
+
     def load_data(self):        
         cur = self.conn.cursor()
-        cur.execute("select first_name,last_name, password, user_name, teacher_email  from teachers where teacher_id = 1")
+        x =  teacherLogin.TeacherLogin.login_conn(self)
+        
+        cur.execute("select first_name,last_name, password, user_name, teacher_email  from teachers where user_name = %s", (x))
         teacher = cur.fetchall()
         for r in teacher:
             self.lineEdit_first_name_teacher.insert(r[0])
