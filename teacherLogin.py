@@ -18,26 +18,26 @@ class TeacherLogin(QMainWindow):
     def login(self):
         try:
             cur = self.conn.cursor() 
-            user_name = self.username.text()
-            password = self.teacher_password.text()                  
-            query = "SELECT user_name,password from teachers where user_name like '"+user_name + "'and password like '" +password + "'"
+            user_name_1 = self.username.text()
+            password_1 = self.teacher_password.text()                  
+            query = "SELECT user_name,password from teachers where user_name like '"+user_name_1 + "'and password like '" +password_1 + "'"
             cur.execute(query)
             result = cur.fetchone() 
             if result == None:
                 self.labelResult.setText("Incorrect UserName or Password") 
             else:
                 self.labelResult.setText("You are logged in")
+                print(type(result))
                 # mydialog =QDialog()
                 # mydialog.setModal(True)
                 # mydialog.exec_()
                 self.cams = teacher.Teacher()
+                self.cams.User_name(result)
+
         except psycopg2.Error as e:
             self.labelResult.setText("Error")
-        
-    def login_conn(self):
-        x = TeacherLogin.login(self)
-        return x
-        
+
+  
 
     def forgot_password(self):
         self.cams = teacher_forget_password.TeacherForgetPassword()
