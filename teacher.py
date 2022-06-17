@@ -6,7 +6,7 @@ import psycopg2
 
 class Teacher(QMainWindow):
 
-    def __init__(self):
+    def __init__(self,name):
         super(Teacher, self).__init__()
         uic.loadUi('ui/teacher_functions.ui', self)
         self.pushButton_lesson_add_newlesson_add.clicked.connect(self.add_lesson)
@@ -18,18 +18,19 @@ class Teacher(QMainWindow):
         self.pushButton_grades_edit_search.clicked.connect(self.search_grade)
         self.pushButton_grades_edit_edit.clicked.connect(self.edit_grade)
         self.pushButton_grades_remove_remove.clicked.connect(self.remove_grade)
+        self.name = name
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
         self.show()
-        self.User_name(self)
+        # self.User_name(self)
         self.load_data()
         
 
 
     def load_data(self):        
         cur = self.conn.cursor()
-        #x =  teacherLogin.TeacherLogin.login_conn(self)
+        print(self.name)
         
-        cur.execute("select first_name,last_name, password, user_name, teacher_email  from teachers where user_name = %s", (self.user_information,))
+        cur.execute("select first_name,last_name, password, user_name, teacher_email  from teachers where user_name = %s", (self.name,))
         teacher = cur.fetchall()
         for r in teacher:
             self.lineEdit_first_name_teacher.insert(r[0])
@@ -38,9 +39,12 @@ class Teacher(QMainWindow):
             self.lineEdit_username_teacher.insert(r[3])
             self.lineEdit_emai_teacher.insert(r[4])
 
-    def User_name(self, result):
-        self.user_inf = list(result)
-        self.user_information = self.user_inf[0]
+    # def User_name(self, result):
+    #     self.user_inf = list(result)
+    #     self.user_information = self.user_inf[0]
+    #     print(self.user_information)
+
+        
         
         
 

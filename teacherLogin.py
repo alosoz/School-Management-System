@@ -28,11 +28,7 @@ class TeacherLogin(QMainWindow):
             else:
                 self.labelResult.setText("You are logged in")
                 print(type(result))
-                # mydialog =QDialog()
-                # mydialog.setModal(True)
-                # mydialog.exec_()
-                self.cams = teacher.Teacher()
-                self.cams.User_name(result)
+                self.cams = teacher.Teacher(result[0])
 
         except psycopg2.Error as e:
             self.labelResult.setText("Error")

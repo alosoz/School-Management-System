@@ -32,7 +32,7 @@ class StudentLogin(QMainWindow):
                 self.labelResult_student.setText("Incorrect Student Number or Password") 
             else:
                 self.labelResult_student.setText("You are logged in")
-                self.cams = student.Student()
+                self.cams = student.Student(result[0])
         except psycopg2.Error as e:
             print(e)
             self.labelResult_student.setText("Error")

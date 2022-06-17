@@ -8,7 +8,7 @@ import psycopg2
 
 class Student(QMainWindow):
 
-    def __init__(self):
+    def __init__(self,number):
         super(Student, self).__init__()
         uic.loadUi('ui/student_functions.ui', self)
         self.tableWidget_lesson_teacher.setColumnWidth(0,205)
@@ -17,8 +17,10 @@ class Student(QMainWindow):
         self.tableWidget_lesson_grade.setColumnWidth(1,250)
         self.pushButton_update_pass.clicked.connect(self.update_pass)
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
+        self.number = int(number)
         self.show()
         self.show_lessons()
+        self.personal_info()
         self.show_grades()
         self.show_lesson_teachers()
          
@@ -90,13 +92,14 @@ class Student(QMainWindow):
 
     def personal_info(self):
         cur = self.conn.cursor()
-        cur.execute("select first_name,last_name, password, student_number from students where student_number ")
+        print(self.number)
+        cur.execute("select first_name,last_name, password, student_number from students where student_number = %s",(self.number,))
         Student = cur.fetchall()
         for r in Student:
             self.First_name_lineEdit.insert(r[0])
-            self.LastName_lineEdit(r[1])
+            self.LastName_lineEdit.insert(r[1])
             self.lineEdit_Password_stu.insert(r[2])
-            self.lineEdit_Stu_number.insert(r[3])
+            self.lineEdit_Stu_number.insert(str(r[3]))
 
         self.conn.commit()
 
