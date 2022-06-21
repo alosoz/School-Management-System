@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS StudentLessons (
 
 
 CREATE TABLE IF NOT EXISTS Grades (
-	"grade_id" integer NOT NULL,
+	"grade_id" serial NOT NULL,
 	"student_id" integer NOT NULL,
 	"lesson_id" integer NOT NULL,
 	"grade" FLOAT NOT NULL,

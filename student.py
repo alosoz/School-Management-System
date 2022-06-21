@@ -8,7 +8,7 @@ import psycopg2
 
 class Student(QMainWindow):
 
-    def __init__(self,number):
+    def __init__(self):
         super(Student, self).__init__()
         uic.loadUi('ui/student_functions.ui', self)
         self.tableWidget_lesson_teacher.setColumnWidth(0,205)

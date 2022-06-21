@@ -1,7 +1,6 @@
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
 import sys
-import psycopg2
 import teacherLogin
 import studentLogin
 
@@ -22,15 +21,7 @@ class Main(QMainWindow):
         self.cams = studentLogin.StudentLogin()
 
     
-
-
-
-
-
-
-
 if (__name__ == '__main__'):
-    # Main App
     app=QApplication(sys.argv)
     mainwindow=Main()
     widget=QtWidgets.QStackedWidget()

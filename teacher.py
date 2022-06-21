@@ -21,14 +21,12 @@ class Teacher(QMainWindow):
         self.name = name
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
         self.show()
-        # self.User_name(self)
         self.load_data()
         
 
 
     def load_data(self):        
         cur = self.conn.cursor()
-        print(self.name)
         
         cur.execute("select first_name,last_name, password, user_name, teacher_email  from teachers where user_name = %s", (self.name,))
         teacher = cur.fetchall()
@@ -39,35 +37,27 @@ class Teacher(QMainWindow):
             self.lineEdit_username_teacher.insert(r[3])
             self.lineEdit_emai_teacher.insert(r[4])
 
-    # def User_name(self, result):
-    #     self.user_inf = list(result)
-    #     self.user_information = self.user_inf[0]
-    #     print(self.user_information)
-
-        
-        
-        
+       
 
     def add_lesson(self):
         cur = self.conn.cursor()
         lesson_name = self.lineEdit_lesson_add_newlesson.text()
         qry = "insert into lessons (name) values(%s)"
-        value = (lesson_name,) # (burai tuple olamasi gerekmis sonuna virgul ekleyince calist)
+        value = (lesson_name,) 
         cur.execute(qry,value)
         self.conn.commit()
-        # TypeError: not all arguments converted during string formatting.
 
     def add_student(self):
         cur = self.conn.cursor()
         student_number = self.lineEdit_lesson_add_StuTolesson_1.text()
         qry = "select student_id from students where student_number=({})".format(student_number)
         cur.execute(qry)
-        student_id = cur.fetchone[0]
-        # fetchone()
+        student_id = cur.fetchone()[0]
+        print(student_id)
         lesson_name = self.lineEdit_Lesson_Add_StuTolesson_2.text()
         qry = "select lesson_id from lessons where name=(%s)"
         cur.execute(qry, (lesson_name,))
-        lesson_id = cur.fetchone[0]
+        lesson_id = cur.fetchone()[0]
         qry = "insert into StudentLessons(student_id,lesson_id) values ({},{})".format(student_id,lesson_id)
         cur.execute(qry)
         self.conn.commit()
@@ -91,15 +81,13 @@ class Teacher(QMainWindow):
         student_number = self.lineEdit_lesson_remove_remstu_1.text()
         qry = "select student_id from students where student_number=({})".format(student_number)
         cur.execute(qry)
-        student_id = cur.fetchone[0]
+        student_id = cur.fetchone()[0]
         lesson_name = self.lineEdit_Lesson_remove_remstu_2.text()
         qry = "select lesson_id from lessons where name=(%s)"
         cur.execute(qry, (lesson_name,))
-        lesson_id = cur.fetchone[0]
-        # qry = "delete from StudentLessons where student_id={} and lesson_id={}".format(student_id,lesson_id)
+        lesson_id = cur.fetchone()[0]
         qry = "delete from StudentLessons where student_id=(%s) and lesson_id=(%s)"
         cur.execute(qry,(student_id,lesson_id))
-        # cur.execute(qry)
         self.conn.commit()
         self.conn.close()
 
@@ -109,10 +97,12 @@ class Teacher(QMainWindow):
         lesson = self.lineEdit_grades_add_2.text()
         grade = float(self.lineEdit_grades_add_3.text())
         cur.execute("select student_id from students where student_number = %s", (student_num,))
-        student_id = cur.fetchone()[0]              
+        student_id = cur.fetchone()[0] 
+        print(student_id)             
         cur.execute("select lesson_id from lessons where name = %s", (lesson,))
         lesson_id = cur.fetchone()[0]
-        cur.execute("insert into grades (grade) values (%s, %s, %s)", (student_id,lesson_id,grade))
+        print(lesson_id)
+        cur.execute("insert into grades (student_id,lesson_id,grade) values (%s, %s, %s)", (student_id,lesson_id,grade))
         self.conn.commit()
 
     def search_grade(self):
@@ -140,7 +130,7 @@ class Teacher(QMainWindow):
         cur = self.conn.cursor()
         student_num = self.lineEdit_grades_remove_1.text()
         lesson = self.lineEdit_grades_remove_2.text()
-        grade = float(self.lineEdit_grades_remove_3.text())
+        # grade = float(self.lineEdit_grades_remove_3.text())
 
         cur.execute("select student_id from students where student_number = %s", (student_num,))
         student_id = cur.fetchone()[0]
@@ -150,12 +140,10 @@ class Teacher(QMainWindow):
         self.conn.commit()
 
 if (__name__ == '__main__'):
-# Main App
     app=QApplication(sys.argv)
     mainwindow=Teacher()
     widget=QtWidgets.QStackedWidget()
     widget.addWidget(mainwindow)
-    # window = Ui_teacher_functions()
     widget.setFixedWidth(800)
     widget.setFixedHeight(800)
     widget.show()
