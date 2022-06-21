@@ -1,3 +1,4 @@
+import base64
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
 import sys
@@ -24,11 +25,11 @@ class TeacherForgetPassword(QMainWindow):
         cur.execute("select user_name from teachers  where user_name = %s" , (username,))
         user = cur.fetchone()[0]
         cur.execute("select password from teachers  where first_name = %s and last_name = %s and user_name = %s",(name,surname,user))
-        grade = cur.fetchone()[0]
-        self.lineEdit_username_teacher_2.insert(grade)
+        password = cur.fetchone()[0]
+        password1 = base64.b16decode(password.encode("utf-8")).decode("utf-8")
+        self.lineEdit_username_teacher_2.insert(password1)
 
 if (__name__ == '__main__'):
-    # Main App
     app=QApplication(sys.argv)
     mainwindow=TeacherForgetPassword()
     widget=QtWidgets.QStackedWidget()

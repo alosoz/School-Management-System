@@ -61,7 +61,7 @@ class Teacher(QMainWindow):
         qry = "insert into StudentLessons(student_id,lesson_id) values ({},{})".format(student_id,lesson_id)
         cur.execute(qry)
         self.conn.commit()
-        self.conn.close()
+        
 
     def edit(self):
         cur = self.conn.cursor()

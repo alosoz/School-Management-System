@@ -1,6 +1,7 @@
+import base64
 import hashlib, binascii, os # to hash passwords
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication
 import sys
 import psycopg2
 import teacher_forget_password, teacher, main
@@ -19,8 +20,10 @@ class TeacherLogin(QMainWindow):
         try:
             cur = self.conn.cursor() 
             user_name_1 = self.username.text()
-            password_1 = self.teacher_password.text()                  
-            query = "SELECT user_name,password from teachers where user_name like '"+user_name_1 + "'and password like '" +password_1 + "'"
+            password_1 = self.teacher_password.text()  
+            encoded = password_1.encode("utf-8")
+            password = base64.b16encode(encoded).decode("utf-8")                
+            query = "SELECT user_name,password from teachers where user_name like '"+user_name_1 + "'and password like '" +password + "'"
             cur.execute(query)
             result = cur.fetchone() 
             if result == None:
@@ -64,12 +67,10 @@ class TeacherLogin(QMainWindow):
         return pwdhash == stored_password
 
 if (__name__ == '__main__'):
-    # Main App
     app=QApplication(sys.argv)
     mainwindow=TeacherLogin()
     widget=QtWidgets.QStackedWidget()
     widget.addWidget(mainwindow)
-    # window = Ui_teacher_functions()
     widget.setFixedWidth(800)
     widget.setFixedHeight(800)
     widget.show()

@@ -51,33 +51,17 @@
      <string notr="true">background-color: #808080</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
       <string>Personal Information</string>
      </attribute>
-     <widget class="QLabel" name="studentPassword">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>140</y>
-        <width>100</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: #ffffff</string>
-      </property>
-      <property name="text">
-       <string>Password:</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="studentNumber">
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>180</y>
+        <y>140</y>
         <width>100</width>
         <height>20</height>
        </rect>
@@ -155,22 +139,6 @@
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_Stu_number">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>180</y>
-        <width>551</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: #ffffff</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_Password_stu">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -286,6 +254,27 @@
       </property>
       <property name="text">
        <string>Update</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_search_pass">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>230</y>
+        <width>181</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffffff</string>
+      </property>
+      <property name="text">
+       <string>Search</string>
       </property>
      </widget>
     </widget>
