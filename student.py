@@ -1,7 +1,6 @@
 import base64
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication
-import sys
+from PyQt5.QtWidgets import QMainWindow
 import psycopg2
 
 
@@ -37,17 +36,9 @@ class Student(QMainWindow):
         password = str(cur.fetchone()[0])
         password1 = base64.b16decode(password.encode("utf-8")).decode("utf-8")
         self.lineEdit_current_pass.insert(password1)
-        # return student_id
 
-    # def update_pass(self):
-    #     cur = self.conn.cursor()
-    #     Current_Password = self.lineEdit_current_pass.text()
-    #     New_Password = self.lineEdit_new_pass.text()
-  
-    #     cur.execute("update students set password = %s  where password = %s",(New_Password,Current_Password))
-    #     self.conn.commit()
 
-    def update_pass(self): #Hash a password for storing
+    def update_pass(self): 
         cur = self.conn.cursor()
         New_Password = self.lineEdit_new_pass.text()
         print(New_Password)
@@ -122,9 +113,6 @@ class Student(QMainWindow):
             row4 = row4+1   
         
         self.conn.commit()
-        
-        
-
 
 
     def personal_info(self):
@@ -140,14 +128,5 @@ class Student(QMainWindow):
         self.conn.commit()
 
 
-# if (__name__ == '__main__'):
-# # Main App
-#     app = QApplication(sys.argv)
-#     mainwindow = Student()
-#     widget=QtWidgets.QStackedWidget()
-#     widget.addWidget(mainwindow)
-#     widget.setFixedWidth(800)
-#     widget.setFixedHeight(800)
-#     widget.show()
-#     app.exec_()
+
 

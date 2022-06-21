@@ -130,7 +130,6 @@ class Teacher(QMainWindow):
         cur = self.conn.cursor()
         student_num = self.lineEdit_grades_remove_1.text()
         lesson = self.lineEdit_grades_remove_2.text()
-        # grade = float(self.lineEdit_grades_remove_3.text())
 
         cur.execute("select student_id from students where student_number = %s", (student_num,))
         student_id = cur.fetchone()[0]
@@ -139,12 +138,4 @@ class Teacher(QMainWindow):
         cur.execute("delete from grades where student_id = %s and lesson_id = %s", (student_id, lesson_id))  
         self.conn.commit()
 
-if (__name__ == '__main__'):
-    app=QApplication(sys.argv)
-    mainwindow=Teacher()
-    widget=QtWidgets.QStackedWidget()
-    widget.addWidget(mainwindow)
-    widget.setFixedWidth(800)
-    widget.setFixedHeight(800)
-    widget.show()
-    app.exec_()
+

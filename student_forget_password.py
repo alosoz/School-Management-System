@@ -1,8 +1,6 @@
 import base64
-from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication
-import sys
-from numpy import number
+from PyQt5 import uic
+from PyQt5.QtWidgets import QMainWindow
 import psycopg2
 
 class StudentForgetPassword(QMainWindow):
@@ -30,14 +28,5 @@ class StudentForgetPassword(QMainWindow):
         password1 = base64.b16decode(password.encode("utf-8")).decode("utf-8")
         self.lineEdit_password_student.insert(password1)
 
-if (__name__ == '__main__'):
-    # Main App
-    app=QApplication(sys.argv)
-    mainwindow=StudentForgetPassword()
-    widget=QtWidgets.QStackedWidget()
-    widget.addWidget(mainwindow)
-    widget.setFixedWidth(800)
-    widget.setFixedHeight(800)
-    widget.show()
-    app.exec_()
+
         

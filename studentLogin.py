@@ -1,9 +1,8 @@
 import base64
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
-import sys
+from PyQt5.QtWidgets import QMainWindow
 import psycopg2
-import student_forget_password,student
+import student_forget_password,student,main
 
 
 class StudentLogin(QMainWindow):
@@ -12,6 +11,7 @@ class StudentLogin(QMainWindow):
         uic.loadUi('ui/student_login.ui', self)
         self.student_login.clicked.connect(self.login)
         self.student_forgot.clicked.connect(self.forgot_password)
+        self.student_login_back.clicked.connect(self.back)
         self.conn = psycopg2.connect(host= 'localhost',database = 'school_management',user = 'postgres',password = '1234')
 
         self.show()
@@ -41,20 +41,7 @@ class StudentLogin(QMainWindow):
 
     def forgot_password(self):
         self.cams = student_forget_password.StudentForgetPassword()
-   
 
+    def back(self):
+        self.cams = main.Main()
    
-        
-        
-  
-
-  
-# if (__name__ == '__main__'):
-#     app=QApplication(sys.argv)
-#     mainwindow=StudentLogin()
-#     widget=QtWidgets.QStackedWidget()
-#     widget.addWidget(mainwindow)
-#     widget.setFixedWidth(800)
-#     widget.setFixedHeight(800)
-#     widget.show()
-#     app.exec_()

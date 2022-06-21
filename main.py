@@ -15,6 +15,7 @@ class Main(QMainWindow):
     
     def teacher(self):
         self.cams = teacherLogin.TeacherLogin()
+        # self.close()
 
 
     def student(self):
